@@ -240,6 +240,11 @@ button:hover {
     font-size: clamp(0.75rem, 1vw, 2rem);
     text-wrap: nowrap;
     padding: 10px;
+    border:none;
+  }
+  button:hover{
+    
+    background-image: linear-gradient(to right, rgb(255, 5, 101) , rgb(255, 98, 50));
   }
 
   label.error {
