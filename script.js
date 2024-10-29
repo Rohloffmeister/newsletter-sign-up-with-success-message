@@ -4,15 +4,18 @@ const formEmail = document.getElementById("email");
 const emailErrorLabel = document.getElementById("emailerror");
 const succText = document.getElementById("succText");
 const dismissButton = document.getElementById("dismiss");
+const hidingPanel = document.getElementById("hiding");
 
 
 function togglePanel(email) {
-  succPanel.classList.toggle("displayFlex");
-  succPanel.classList.toggle("displayNone");
   succText.innerHTML = succText.innerHTML.replace(
     "ash@loremcompany.com",
     email
   );
+  succPanel.classList.toggle("displayFlex");
+  succPanel.classList.toggle("displayNone");
+  hidingPanel.classList.toggle("displayFlex");
+  
 }
 
 function checkEmail(email) {

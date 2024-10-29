@@ -6,6 +6,7 @@
   font-family: "Roboto-Regular";
   src: url("assets/fonts/Roboto-Regular.ttf");
 }
+
 :root {
   --Dark-Slate-Grey: hsl(234, 29%, 20%);
   --Charcoal-Grey: hsl(235, 18%, 26%);
@@ -32,17 +33,20 @@ p {
   flex-direction: row;
 }
 
+.checklist img {
+  margin-right: 3vw;
+}
+
 .top-img-mobile {
   width: 100%;
 }
-.top-img-desktop{
-    display:none;
+
+.top-img-desktop {
+  display: none;
 }
+
 .registration {
   margin: 20px 4vw;
-}
-.checklist img {
-  margin-right: 3vw;
 }
 
 #form {
@@ -55,20 +59,19 @@ p {
   font-family: "Roboto-Bold";
   font-size: small;
 }
+
 .inputLabel {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
 }
+
 label.error {
   display: flex;
   color: rgb(248, 66, 66) !important;
 }
-input.error {
-  background-color: rgb(255, 192, 192) !important;
-  border-color: rgb(248, 66, 66) !important;
-}
+
 input {
   height: 40px;
   border-radius: 5px;
@@ -76,11 +79,18 @@ input {
   box-shadow: none;
   margin: 2vh 0vw;
 }
+
 input:focus {
   outline: none;
 }
+
 input[type="email"] {
   padding-left: 20px;
+}
+
+input.error {
+  background-color: rgb(255, 192, 192) !important;
+  border-color: rgb(248, 66, 66) !important;
 }
 
 #email::placeholder {
@@ -97,23 +107,9 @@ button {
   border-radius: 5px;
   font-size: clamp(0.75rem, 5vw, 1.2rem);
 }
+
 button:hover {
   background-color: var(--Charcoal-Grey);
-}
-.attribution {
-  font-size: 11px;
-  text-align: center;
-}
-.attribution a {
-  color: hsl(228, 45%, 44%);
-}
-/* <--- Form success panel --->*/
-
-.displayFlex {
-  display: flex !important;
-}
-.displayNone {
-  display: none;
 }
 
 .form-success {
@@ -132,14 +128,44 @@ button:hover {
   flex-direction: column;
   justify-content: flex-end;
 }
+
 .form-success-inner-text {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
 .form-success-inner img {
   width: 20%;
+}
+
+#hiding {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: 9;
+  background-color: var(--Dark-Slate-Grey);
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+.displayFlex {
+  display: flex !important;
+}
+
+.displayNone {
+  display: none;
 }
 
 @media (min-width: 500px) {
@@ -151,21 +177,9 @@ button:hover {
     align-items: center;
     height: 100vh;
   }
-  h1{
-    font-size: clamp(1.3rem,3.2vw,3rem);
-    margin-bottom: 0;
-  }
-  p{
-    margin-bottom:clamp(1px,1vw,10px);
-    font-size: clamp(0.75rem,2vw,1.1rem);
 
-    
-  }
-  footer {
-    display: none;
-  }
   main {
-   
+    position: relative;
     width: fit-content;
     max-width: 95%;
     flex-direction: row-reverse;
@@ -175,48 +189,112 @@ button:hover {
     background-color: white;
     border-radius: 20px;
   }
+
+  h1 {
+    font-size: clamp(1.3rem, 3.2vw, 3rem);
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-bottom: clamp(1px, 1vw, 10px);
+    font-size: clamp(0.75rem, 2vw, 1.1rem);
+  }
+
   .top-img-mobile {
     display: none;
   }
+
   .top-img-desktop {
     display: flex;
     margin-right: 10px;
     height: 95%;
     max-width: 50%;
     min-height: 95%;
-
-    
-  }
-  .checklist{
-    display: flex;
-    flex-direction: row;
-    margin-bottom:clamp(1px,1vw,10px);
-    
   }
 
-  .registration{
+  .checklist {
+    margin-bottom: clamp(1px, 1vw, 10px);
+  }
+
+  .registration {
     height: 100%;
-    margin:0 2vw 0 2vw;
+    margin: 0 2vw 0 2vw;
     width: 40%;
-    
-    max-width:50%;
-  
+    max-width: 50%;
   }
-  #form{
-    margin: 0 ;
+
+  #form {
+    margin: 0;
     margin-top: 3vw;
+    position: absolute;
+    width: 40%;
+    bottom: 20px;
   }
-  input{
+
+  input {
     max-height: 4vh;
-    margin:1vh 0vw;
+    margin: 1vh 0vw;
   }
-  button{
-    font-size: clamp(0.75rem,1vw,2rem);
+
+  button {
+    font-size: clamp(0.75rem, 1vw, 2rem);
     text-wrap: nowrap;
     padding: 10px;
-}
-label.error{
+  }
+
+  label.error {
     text-wrap: nowrap;
     inline-size: 50%;
-}
+  }
+
+  .form-success {
+    position: fixed;
+    min-height: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    max-width: 450px;
+    padding: 40px;
+    background-color: white;
+    border-radius: 20px;
+    z-index: 10;
+  }
+
+  .form-success h1 {
+    font-size: clamp(2.5rem, 5vw, 3rem);
+  }
+
+  .form-success p {
+    font-size: clamp(1.4rem, 2.4vw, 1.5rem);
+    text-align: left;
+  }
+
+  .form-success img {
+    width: 15%;
+  }
+
+  .form-success-inner {
+    height: 100%;
+    margin-bottom: 10px;
+    padding: 0;
+  }
+
+  .form-success-inner-text {
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .form-success-inner button {
+    font-size: 18px;
+    height: 50px;
+  }
+
+  footer {
+    position:absolute;
+    bottom: 10px;
+    color: white;
+    z-index: 100;
+  }
 }
